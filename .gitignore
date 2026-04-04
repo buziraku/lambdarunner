@@ -1,0 +1,24 @@
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Virtual environments
+.venv/
+venv/
+
+# Test and lint cache
+.pytest_cache/
+.ruff_cache/
+
+# Environment variables / secrets
+.env
+.env.*
+
+# OS artifacts
+.DS_Store

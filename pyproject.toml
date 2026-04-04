@@ -1,0 +1,45 @@
+[tool.poetry]
+name = "lambdarunner"
+version = "0.1.0"
+description = "Run AWS Lambda handlers locally. No Docker, no SAM, no AWS connection required."
+authors = ["Your Name <you@example.com>"]
+license = "MIT"
+readme = "README.md"
+keywords = ["aws", "lambda", "serverless", "local", "cli"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Testing",
+    "Topic :: System :: Emulators",
+]
+packages = [{ include = "lambdarunner" }]
+
+[tool.poetry.scripts]
+lambdarunner = "lambdarunner.cli:app"
+
+[tool.poetry.dependencies]
+python = ">=3.12,<4.0"
+typer = ">=0.9.0"
+rich = ">=13.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.0.0"
+ruff = ">=0.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
