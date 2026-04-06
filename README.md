@@ -59,6 +59,16 @@ lambdarunner invoke handler.lambda_handler --env-file .env --region eu-west-1
 | `--traceback` | | `False` | Show full traceback on handler errors |
 | `--version` | `-V` | | Show version and exit |
 
+## Shell Completion
+
+Enable tab completion for your shell:
+
+```bash
+lambdarunner --install-completion
+```
+
+Supports Bash, Zsh, Fish, and PowerShell.
+
 ## Why lambdarunner?
 
 - Built from scratch with modern Python (3.12+)
