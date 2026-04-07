@@ -5,6 +5,7 @@ on:
 
 permissions:
   contents: write
+  actions: write
 
 jobs:
   release:
@@ -36,6 +37,14 @@ jobs:
           echo "Version: $VERSION"
           echo "version=$VERSION" >> $GITHUB_OUTPUT
           echo "tag=v$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Set run title
+        run: |
+          gh api --method PATCH \
+            /repos/${{ github.repository }}/actions/runs/${{ github.run_id }} \
+            -f display_title="v${{ steps.bump.outputs.version }}"
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       - name: Update __init__.py version
         run: |
