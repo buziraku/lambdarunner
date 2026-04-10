@@ -35,14 +35,6 @@ jobs:
           VERSION=$(poetry version -s)
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
-      - name: Set run title
-        run: |
-          gh api --method PATCH \
-            /repos/${{ github.repository }}/actions/runs/${{ github.run_id }} \
-            -f display_title="Publish v${{ steps.version.outputs.version }} to pipy"
-        env:
-          GH_TOKEN: ${{ github.token }}
-
       - name: Build dist
         run: poetry build
 
